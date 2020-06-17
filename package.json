@@ -1,5 +1,5 @@
 {
-  "name": "visite-rdc",
+  "name": "visiterdc",
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
@@ -58,6 +58,6 @@
   },
   "engines": {
     "node": "~12.11.0",
-    "npm":"~6.11.3"
+    "npm": "~6.11.3"
   }
 }
