@@ -13,6 +13,10 @@ import {AngularFireDatabaseModule} from "@angular/fire/database";
 import {ReactiveFormsModule} from "@angular/forms";
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {MaterialModule} from "./modules/material/material.module";
+import { DashboardComponent } from './shared/dashboard/dashboard.component';
+import { HeaderComponent } from './shared/header/header.component';
+import { SidebarComponent } from './shared/sidebar/sidebar.component';
+import { FooterComponent } from './shared/footer/footer.component';
 
 
 
@@ -21,7 +25,11 @@ import {MaterialModule} from "./modules/material/material.module";
     AppComponent,
     CreersiteComponent,
     ListsiteComponent,
-    DetailsiteComponent
+    DetailsiteComponent,
+    DashboardComponent,
+    HeaderComponent,
+    SidebarComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,
