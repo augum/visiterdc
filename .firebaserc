@@ -1,0 +1,11 @@
+{
+  "targets": {
+    "visiterdc-f4133": {
+      "hosting": {
+        "visiteRdc": [
+          "visiterdc-f4133"
+        ]
+      }
+    }
+  }
+}

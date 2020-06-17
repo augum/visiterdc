@@ -1,0 +1,48 @@
+<mat-card style="width: 25rem" class="aligne mt-4" >
+  <mat-card-content >
+    <form [formGroup]="formtemplate" (submit)="onSubmit(formtemplate.value)">
+      <div class="text-center">
+        <img [src]="imgSrc" width="350px" height="250px" (click)="fileUploader.click()">
+      </div>
+      <div class="form-group">
+        <label>Selectionner une image</label>
+        <input type="file"  accept="image/*" class="form-control" #fileUploader formControlName="img" (change)="showPreview($event)">
+        <div class="text-danger" *ngIf="isSubmitted && formControls.img.errors?.required">Champ obligatoire.</div>
+      </div>
+      <div class="form-group">
+        <input  class="form-control" formControlName="nom" placeholder="le nom du site ex. Bikeko">
+        <div class="text-danger" *ngIf="isSubmitted && formControls.nom.errors?.required">Champ obligatoire.</div>
+
+      </div>
+      <div class="form-group">
+        <textarea  class="form-control" formControlName="description" placeholder="description du site"></textarea>
+        <div class="text-danger" *ngIf="isSubmitted && formControls.description.errors?.required">Champ obligatoire.</div>
+
+      </div>
+      <div class="form-group">
+        <label>Province</label>
+        <select class="form-control" formControlName="province">
+          <option value="Kinshasa" selected>Kinshasa</option>
+          <option value="Kwilu">Kwilu</option>
+          <option value="congo central">kongo central</option>
+          <option value="bandundu">Bandundu</option>
+        </select>
+        <div class="text-danger" *ngIf="isSubmitted && formControls.province.errors?.required">Champ obligatoire.</div>
+
+      </div>
+      <div class="form-group">
+        <label>Catégorie</label>
+        <select class="form-control" formControlName="cat">
+          <option value="hotel" selected>Hôtel</option>
+          <option value="restaurant">Restaurant</option>
+          <option value="site touristique">Site touristique</option>
+          <option value="stade">Stade</option>
+        </select>
+       <div class="text-danger" *ngIf="isSubmitted && formControls.cat.errors?.required">Champ obligatoire.</div>
+      </div>
+      <div class="form-group">
+        <button type="submit" class="btn btn-success">VALIDER</button>
+      </div>
+    </form>
+  </mat-card-content>
+</mat-card>
