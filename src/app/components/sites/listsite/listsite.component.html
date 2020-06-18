@@ -1,28 +1,44 @@
-<div class="search-div">
-    <mat-form-field class="example-full-width">
-      <mat-label>Recherche</mat-label>
-      <input #query matInput type="text" (keyup)="search(query.value)" class="form-control" placeholder="Recherche par province">
-    </mat-form-field>
-</div>
-<div *ngIf="sites">
-  <div class="row card-group">
-    <div *ngFor="let site of recherchesites" class="col-2 margin"  >
-      <mat-card >
-        <mat-card-title>{{site.content.nom}}:bien</mat-card-title>
-        <mat-card-subtitle>{{site.content.cat}}</mat-card-subtitle>
-        <mat-card-content>
-          <img src="{{site.content.img}}" width="180" height="180">
-        </mat-card-content>
-        <mat-card-actions >
-          <button  mat-flat-button class="btn btn-primary"(click)="voirDetail(site)">Voir détail</button>
-        </mat-card-actions>
-      </mat-card>
-    </div>
-  </div>
-</div>
-<div *ngIf="!sites">
-  <mat-spinner class="center"></mat-spinner>
-  <span  class="center">Chargement...</span>
-</div>
 
+
+<div class="hero-bg">
+   <section class="top">
+      <header>
+        
+        <h1><span>Visiter</span>La RDC</h1>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Perferendis laudantium atque adipisci, consequuntur perspiciatis, officia quo, delectus quas repellat aliquid expedita minima! Deserunt natus voluptatem delectus excepturi dolores illo quisquam?</p>
+        <div class="form-container">
+          <form>
+            <div class="form-left">
+              <label for="city">Taper une province:</label>
+            <input type="text" name="city" id="city" #query matInput (keyup)="search(query.value)">
+            <p>Exemple: "kinshasa</p>
+            </div>
+          </form>
+        </div>
+
+      </header>
+   </section> 
+</div>
+<section class="authentic">
+  <div class="right-col" *ngIf="sites">
+     <div class="row card-group">
+        <div *ngFor="let site of recherchesites" class="margin col-2">
+          <mat-card >
+            <mat-card-title>{{site.content.nom}}:bien</mat-card-title>
+            <mat-card-subtitle>{{site.content.cat}}</mat-card-subtitle>
+            <mat-card-content>
+              <img src="{{site.content.img}}" width="150" height="150">
+            </mat-card-content>
+            <mat-card-actions >
+              <button  mat-flat-button class="btn btn-primary"(click)="voirDetail(site)">Voir détail</button>
+            </mat-card-actions>
+          </mat-card>
+        </div>
+     </div> 
+  </div>
+  <div *ngIf="!sites">
+    <mat-spinner class="center"></mat-spinner>
+    <span  class="center">Chargement...</span>
+  </div>
+</section>
 
