@@ -1,21 +1,31 @@
 
-
 <div class="hero-bg">
    <section class="top">
       <header>
-        
-        <h1><span>Visiter</span>La RDC</h1>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Perferendis laudantium atque adipisci, consequuntur perspiciatis, officia quo, delectus quas repellat aliquid expedita minima! Deserunt natus voluptatem delectus excepturi dolores illo quisquam?</p>
+        <h1><span>Visiter</span><p class="rdc">La RDC</p></h1>
+        <p>Svisit est une application qui vous permet de trouver facilement les lieux de divertissement, les sites touristiques partout en République Démocratique du Congo<br>
+          êtes vous stressés? voulez vous decouvrir les merveillles de la RDC? Nous commes votre guide
+        </p>
         <div class="form-container">
           <form>
+            
             <div class="form-left">
               <label for="city">Taper une province:</label>
-            <input type="text" name="city" id="city" #query matInput (keyup)="search(query.value)">
+            <input type="text" 
+            placeholder="Pick one"
+            aria-label="Number"
+            matInput
+            [formControl]="myControl"
+            [matAutocomplete]="auto" name="city" id="city" #query matInput (keyup)="search(query.value)">
+            <mat-autocomplete #auto="matAutocomplete">
+              <mat-option *ngFor="let option of filteredOptions | async" [value]="option" #query matInput (click)="search(query.value)">
+                {{option}}
+              </mat-option>
+            </mat-autocomplete>
             <p>Exemple: "kinshasa</p>
             </div>
           </form>
         </div>
-
       </header>
    </section> 
 </div>
@@ -24,7 +34,7 @@
      <div class="row card-group">
         <div *ngFor="let site of recherchesites" class="margin col-2">
           <mat-card >
-            <mat-card-title>{{site.content.nom}}:bien</mat-card-title>
+            <mat-card-title>{{site.content.nom}}</mat-card-title>
             <mat-card-subtitle>{{site.content.cat}}</mat-card-subtitle>
             <mat-card-content>
               <img src="{{site.content.img}}" width="150" height="150">

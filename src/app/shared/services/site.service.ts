@@ -20,9 +20,8 @@ export class SiteService {
     ref => ref.equalTo(p));
     return this.imageDetailP;
   }
-  inserImageDetails(imageDatails){console.log(imageDatails);
+  inserImageDetails(imageDatails){
+    console.log(imageDatails);
     this.imageDetailList.push({content:imageDatails});
-
-
   }
 }

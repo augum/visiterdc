@@ -1,16 +1,15 @@
 
 .center {
-  margin-top: 15%;
+  margin-top: 5%;
   margin-left: 50%;
   margin-right: 50%;
 }
 
 .hero-bg{
-  background:#307D99 url('/src/assets/img/Eau2.jpg');
+  background:white url('/src/assets/img/Eau2.jpg');
   background-position: 12% 83%;
-  color: white;
+  color: black;
   text-align: center;
-  padding-bottom:  4em; 
 }
 
 header{
@@ -25,7 +24,7 @@ header{
 
 }
 section{
-  margin:  0 1em;
+  margin:  0 0;
 }
 h1{
   font-size: 2.5rem;
@@ -34,15 +33,19 @@ h1{
 h1 span {
   text-transform: uppercase;
   display: block;
+  color: yellow;
   font-size: 1.4em;
   position: relative;
   z-index: 1;
+}
+.rdc{
+  color:blue;
 }
 h1 span::before{
   content: ' ';
   position: absolute;
   width: 3em;
-  background: #00BFFF;
+  background: red;
   height: .4em;
   bottom: 0;
   z-index: -1;
@@ -51,7 +54,7 @@ h1 span::before{
 }
 .hero-bg p{
    font-weight: bold;
-   margin: 0 1em 3em;
+   margin: 0 1em 1em;
 }
 .form-container{
   background-color: white;
@@ -79,4 +82,14 @@ input[type=text]{
   font-weight: normal;
   font-size: .9em;
   margin-top: .3em;
+}
+
+.example-form {
+  min-width: 150px;
+  max-width: 500px;
+  width: 100%;
+}
+
+.example-full-width {
+  width: 100%;
 }

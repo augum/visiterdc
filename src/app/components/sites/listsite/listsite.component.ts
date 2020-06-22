@@ -5,6 +5,9 @@ import {MatPaginator} from "@angular/material/paginator";
 import {MatTableDataSource} from "@angular/material/table";
 import { Router, NavigationExtras } from '@angular/router';
 import {AngularFireDatabase, AngularFireList} from "@angular/fire/database";
+import { Observable } from 'rxjs';
+import { FormControl } from '@angular/forms';
+import { startWith, map } from 'rxjs/operators';
 
 @Component({
   selector: 'app-listsite',
@@ -18,8 +21,38 @@ export class ListsiteComponent implements OnInit {
  imageDetailList:AngularFireList<any>;
  value: any;
   public inters:MatTableDataSource<Site>;
+  myControl = new FormControl();
+  //options: string[] = ['One', 'Two', 'Three'];
+  filteredOptions: Observable<string[]>;
 
-  options:string[]=['Kinshasa','Kongo central','Mongala','Tshuapa'];
+  options:string[]=[
+    'Kinshasa',
+    'Bas-Uele',
+    'Equateur',
+    'Haut-Katanga',
+    'Haut-Lomami',
+    'Haut-Uele',
+    'Ituri',
+    'Kasaï',
+    'Kasaï-Central',
+    'Kasaï-Oriental',
+    'Kongo-Central',
+    'Kwango',
+    'Kwilu',
+    'Lomami',
+    'Lualaba',
+    'Mai-Ndombe',
+    'Maniema',
+    'Mongala',
+    'Nord-Kivu',
+    'Nord-Ubangi',
+    'Sankuru',
+    'Sud-Kivu',
+    'Sud-Ubangi',
+    'Tanganyika',
+    'Tshopo',
+    'Tshuapa'
+  ];
   displayedColumns: string[] = ['code'];
 
   @ViewChild(MatPaginator) paginator: MatPaginator;
@@ -27,7 +60,11 @@ export class ListsiteComponent implements OnInit {
 
   ngOnInit(): void {
     this.getSite();
-    
+    this.filteredOptions = this.myControl.valueChanges
+      .pipe(
+        startWith(''),
+        map(value => this._filter(value))
+      );
   }
  getSite(){
    this.service.imageDetailList.snapshotChanges().subscribe(
@@ -75,5 +112,10 @@ export class ListsiteComponent implements OnInit {
         }
      };
      this.route.navigate(['sitedetail'],navigationExtra);
+  }
+  private _filter(value: string): string[] {
+    const filterValue = value.toLowerCase();
+
+    return this.options.filter(option => option.toLowerCase().includes(filterValue));
   }
 }

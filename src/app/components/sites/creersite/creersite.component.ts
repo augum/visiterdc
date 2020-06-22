@@ -15,6 +15,7 @@ export class CreersiteComponent implements OnInit {
   selectedImage: any = null;
   isSubmitted:boolean;
   formtemplate = new FormGroup({
+    id: new FormControl(),
     nom: new FormControl('',Validators.required),
     description: new FormControl('',Validators.required),
     img: new FormControl('',Validators.required),
@@ -39,7 +40,7 @@ export class CreersiteComponent implements OnInit {
        this.selectedImage = null;
     }
   }
-
+  
   onSubmit(formValue) {
      this.isSubmitted= true;
      if(this.formtemplate.valid){
@@ -50,6 +51,7 @@ export class CreersiteComponent implements OnInit {
              finalize(()=>{
                fileRef.getDownloadURL().subscribe((url)=>{
                   formValue['img'] = url;
+                  formValue['id'] = formValue['nom']+new Date().getTime();
                   this.service.inserImageDetails(formValue);
                   this.ressetForm();
                })
@@ -63,7 +65,8 @@ export class CreersiteComponent implements OnInit {
   ressetForm(){
      this.formtemplate.reset();
      this.formtemplate.setValue({
-       nom:'',
+      id:'',
+      nom:'',
        description:'',
        img:'',
        province:'',

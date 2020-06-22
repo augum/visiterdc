@@ -1,11 +1,13 @@
 export class Site {
   content:{
-  id:number;
-  nom:string;
-  img:string;
-  description:string;
-  province:string;
-  categorie:string;
+    id:string;
+    nom:string;
+    img:string;
+    img2:string;
+    img3:string;
+    description:string;
+    province:string;
+    categorie:string;
   }
 
 }
