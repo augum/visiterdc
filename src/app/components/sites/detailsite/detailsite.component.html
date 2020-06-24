@@ -1,16 +1,29 @@
-<mat-card  class="aligne mt-4 example-card" *ngIf="data">
-  <mat-card-header>
-    <mat-card-title>{{data.content.nom}}</mat-card-title>
-    <mat-card-subtitle>{{data.content.province}}</mat-card-subtitle>
-  </mat-card-header>
-  <img mat-card-image src="{{data.content.img}}" alt="Photo of a Shiba Inu">
-  <mat-card-content>
-    <p>
-      {{data.content.description}}
-    </p>
-  </mat-card-content>
-  <mat-card-actions>
-    <button mat-button>LIKE</button>
-    <button mat-raised-button color="primary"  (click)="retour()">Retour</button>
-  </mat-card-actions>
-</mat-card>
+<section class="authentic gallery-block cards-gallery">
+  <div class="container"  *ngIf="data">
+     <div class="row" >
+       <div class="col-md-6 col-lg-6"><br>
+        <mat-card>
+          <mat-card-header>
+            <mat-card-title>{{data.content.nom}}</mat-card-title>
+          </mat-card-header>
+          <img mat-card-image src="{{data.content.img}}" alt="Photo of a Shiba Inu">
+          
+        </mat-card>
+       </div>
+       <div class="col-md-6 col-lg-6">
+         <label><h2>Description du site</h2></label>
+        <p>{{data.content.description}}</p>
+        <p>{{data.content.presentation}}</p><hr>
+        <p>Catégorie: {{data.content.cat}}</p>
+        <p>Province: {{data.content.province}}</p><hr>
+        <p>Adresse: {{data.content.adresse}}</p>
+        <p>Telephone: {{data.content.telephone}}</p>
+        <p *ngIf="data.content.email" >Email: {{data.content.email}}</p>
+        <p *ngIf="data.content.site">site: {{data.content.site}}</p>
+        <p>Horaire d'ouverture: {{data.content.horaire}}</p>
+        <p>Adresse: {{data.content.adresse}}</p><hr>
+        <button mat-raised-button color="primary"  (click)="retour()">Retour</button>
+      </div>
+     </div>
+  </div>
+</section>

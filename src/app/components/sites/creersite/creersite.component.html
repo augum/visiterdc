@@ -1,69 +1,97 @@
-<mat-card style="width: 25rem" class="aligne mt-4" >
-  <mat-card-content >
+  <div class="container"><br>
     <form [formGroup]="formtemplate" (submit)="onSubmit(formtemplate.value)">
       <div class="text-center">
         <img [src]="imgSrc" width="350px" height="250px" (click)="fileUploader.click()">
       </div>
-      <div class="form-group">
-        <label>Selectionner une image</label>
-        <input type="file"  accept="image/*" class="form-control" #fileUploader formControlName="img" (change)="showPreview($event)">
-        <div class="text-danger" *ngIf="isSubmitted && formControls.img.errors?.required">Champ obligatoire.</div>
+      <div class="row">
+      <div class="col-md-6 col-lg-6">
+        <div class="form-group">
+          <label>Selectionner une image</label>
+          <input type="file"  accept="image/*" class="form-control" #fileUploader formControlName="img" (change)="showPreview($event)">
+          <div class="text-danger" *ngIf="isSubmitted && formControls.img.errors?.required">Champ obligatoire.</div>
+        </div>
+        <div class="form-group">
+          <input  class="form-control" formControlName="nom" placeholder="le nom du site ex. Bikeko">
+          <div class="text-danger" *ngIf="isSubmitted && formControls.nom.errors?.required">Champ obligatoire.</div>
+  
+        </div>
+        <div class="form-group">
+          <textarea  class="form-control" formControlName="description" placeholder="description du site"></textarea>
+          <div class="text-danger" *ngIf="isSubmitted && formControls.description.errors?.required">Champ obligatoire.</div>
+  
+        </div>
+        <div class="form-group">
+          <label>Province</label>
+          <select class="form-control" formControlName="province">
+            <option value="Kinshasa" selected>Kinshasa</option>
+            <option value="Equateur">Équateur</option>
+            <option value="Haut-Katanga">Haut-Katanga</option>
+            <option value="Haut-Lomami">Haut-Lomami</option>
+            <option value="Haut-Uele">Haut-Uele</option>
+            <option value="Ituri">Ituri</option>
+            <option value="Kasaï">Kasaï</option>
+            <option value="Kasaï-Central">Kasaï-Central</option>
+            <option value="Kasaï-Oriental">Kasaï-Oriental</option>
+            <option value="Kongo-Central">Kongo-Central</option>
+            <option value="Kwango">Kwango</option>
+            <option value="Kwilu">Kwilu</option>
+            <option value="Lomami">Lomami</option>
+            <option value="Lualaba">Lualaba</option>
+            <option value="Mai-Ndombe">Mai-Ndombe</option>
+            <option value="Maniema">Maniema</option>
+            <option value="Mongala">Mongala</option>
+            <option value="Nord-Kivu">Nord-Kivu</option>
+            <option value="Nord-Ubangi">Nord-Ubangi</option>
+            <option value="Sankuru">Sankuru</option>
+            <option value="Sud-Kivu">Sud-Kivu</option>
+            <option value="Sud-Ubangi">Sud-Ubangi</option>
+            <option value="Tanganyika">Tanganyika</option>
+            <option value="Tshopo">Tshopo</option>
+            <option value="Tshuapa">Tshuapa</option>
+          </select>
+          <div class="text-danger" *ngIf="isSubmitted && formControls.province.errors?.required">Champ obligatoire.</div>
+  
+        </div>
+        <div class="form-group">
+          <label>Catégorie</label>
+          <select class="form-control" formControlName="cat">
+            <option value="hotel" selected>Hôtel</option>
+            <option value="restaurant">Restaurant</option>
+            <option value="site touristique">Site touristique</option>
+            <option value="stade">Stade</option>
+          </select>
+         <div class="text-danger" *ngIf="isSubmitted && formControls.cat.errors?.required">Champ obligatoire.</div>
+        </div>
       </div>
-      <div class="form-group">
-        <input  class="form-control" formControlName="nom" placeholder="le nom du site ex. Bikeko">
-        <div class="text-danger" *ngIf="isSubmitted && formControls.nom.errors?.required">Champ obligatoire.</div>
-
+      <div class="col-md-6 col-lg-6">
+        <br>
+        <div class="form-group">
+          <input  class="form-control" formControlName="telephone" placeholder="telephone: ex.0817454018">
+          <div class="text-danger" *ngIf="isSubmitted && formControls.telephone.errors?.required">Champ obligatoire.</div>
+        </div>
+        <div class="form-group">
+          <input  class="form-control" formControlName="email" placeholder="email: ex. augumakum@gmail.com">
+        </div>
+        <div class="form-group">
+          <input  class="form-control" formControlName="site" placeholder="site: www.bisope.cd">
+        </div>
+        <div class="form-group">
+          <input  class="form-control" formControlName="horaire" placeholder="horaire d'ouverture">
+          <div class="text-danger" *ngIf="isSubmitted && formControls.horaire.errors?.required">Champ obligatoire.</div>
+        </div>
+        <div class="form-group">
+          <input  class="form-control" formControlName="adresse" placeholder="Adresse">
+          <div class="text-danger" *ngIf="isSubmitted && formControls.adresse.errors?.required">Champ obligatoire.</div>
+        </div>
+        <div class="form-group">
+          <textarea  class="form-control" formControlName="presentation" placeholder="breve presentation"></textarea>
+          <div class="text-danger" *ngIf="isSubmitted && formControls.presentation.errors?.required">Champ obligatoire.</div>
+        </div>
+        <div class="form-group">
+          <button type="submit" class="btn btn-success">VALIDER</button>
+        </div> 
       </div>
-      <div class="form-group">
-        <textarea  class="form-control" formControlName="description" placeholder="description du site"></textarea>
-        <div class="text-danger" *ngIf="isSubmitted && formControls.description.errors?.required">Champ obligatoire.</div>
-
-      </div>
-      <div class="form-group">
-        <label>Province</label>
-        <select class="form-control" formControlName="province">
-          <option value="Kinshasa" selected>Kinshasa</option>
-          <option value="Equateur">Équateur</option>
-          <option value="Haut-Katanga">Haut-Katanga</option>
-          <option value="Haut-Lomami">Haut-Lomami</option>
-          <option value="Haut-Uele">Haut-Uele</option>
-          <option value="Ituri">Ituri</option>
-          <option value="Kasaï">Kasaï</option>
-          <option value="Kasaï-Central">Kasaï-Central</option>
-          <option value="Kasaï-Oriental">Kasaï-Oriental</option>
-          <option value="Kongo-Central">Kongo-Central</option>
-          <option value="Kwango">Kwango</option>
-          <option value="Kwilu">Kwilu</option>
-          <option value="Lomami">Lomami</option>
-          <option value="Lualaba">Lualaba</option>
-          <option value="Mai-Ndombe">Mai-Ndombe</option>
-          <option value="Maniema">Maniema</option>
-          <option value="Mongala">Mongala</option>
-          <option value="Nord-Kivu">Nord-Kivu</option>
-          <option value="Nord-Ubangi">Nord-Ubangi</option>
-          <option value="Sankuru">Sankuru</option>
-          <option value="Sud-Kivu">Sud-Kivu</option>
-          <option value="Sud-Ubangi">Sud-Ubangi</option>
-          <option value="Tanganyika">Tanganyika</option>
-          <option value="Tshopo">Tshopo</option>
-          <option value="Tshuapa">Tshuapa</option>
-        </select>
-        <div class="text-danger" *ngIf="isSubmitted && formControls.province.errors?.required">Champ obligatoire.</div>
-
-      </div>
-      <div class="form-group">
-        <label>Catégorie</label>
-        <select class="form-control" formControlName="cat">
-          <option value="hotel" selected>Hôtel</option>
-          <option value="restaurant">Restaurant</option>
-          <option value="site touristique">Site touristique</option>
-          <option value="stade">Stade</option>
-        </select>
-       <div class="text-danger" *ngIf="isSubmitted && formControls.cat.errors?.required">Champ obligatoire.</div>
-      </div>
-      <div class="form-group">
-        <button type="submit" class="btn btn-success">VALIDER</button>
-      </div>
+    </div>
     </form>
-  </mat-card-content>
-</mat-card>
+  </div>
+  

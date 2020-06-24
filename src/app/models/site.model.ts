@@ -7,7 +7,13 @@ export class Site {
     img3:string;
     description:string;
     province:string;
-    categorie:string;
+    cat:string;
+    telephone:string;
+    email:string;
+    site:string;
+    horaire:string;
+    adresse:string;
+    presentation:string;
   }
 
 }

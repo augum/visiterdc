@@ -3,12 +3,8 @@
    <section class="top">
       <header>
         <h1><span>Visiter</span><p class="rdc">La RDC</p></h1>
-        <p>Svisit est une application qui vous permet de trouver facilement les lieux de divertissement, les sites touristiques partout en République Démocratique du Congo<br>
-          êtes vous stressés? voulez vous decouvrir les merveillles de la RDC? Nous commes votre guide
-        </p>
         <div class="form-container">
           <form>
-            
             <div class="form-left">
               <label for="city">Taper une province:</label>
             <input type="text" 
@@ -29,22 +25,24 @@
       </header>
    </section> 
 </div>
-<section class="authentic">
-  <div class="right-col" *ngIf="sites">
-     <div class="row card-group">
-        <div *ngFor="let site of recherchesites" class="margin col-2">
-          <mat-card >
-            <mat-card-title>{{site.content.nom}}</mat-card-title>
-            <mat-card-subtitle>{{site.content.cat}}</mat-card-subtitle>
-            <mat-card-content>
-              <img src="{{site.content.img}}" width="150" height="150">
-            </mat-card-content>
-            <mat-card-actions >
-              <button  mat-flat-button class="btn btn-primary"(click)="voirDetail(site)">Voir détail</button>
-            </mat-card-actions>
-          </mat-card>
-        </div>
-     </div> 
+<section class="authentic gallery-block cards-gallery">
+  <div class="container"  *ngIf="sites">
+     <div class="row" >
+       <div class="col-md-6 col-lg-4" *ngFor="let site of recherchesites">
+         <div class="card border-0 transform-on-hover imgover">
+           <a class="lightbox" >
+              <img src="{{site.content.img}}" alt="{{site.content.nom}}" class="card-img-top pointer image" (click)="voirDetail(site)">
+           </a>
+           <div class="middle">
+             <div class="text">{{site.content.nom}}</div>
+            </div>
+           <div class="card-body">
+              <h2 (click)="voirDetail(site)" class="pointer">{{site.content.nom}}</h2>
+              <p class="text-muted card-text">{{site.content.description}}</p>
+           </div>
+         </div>
+       </div>
+     </div>
   </div>
   <div *ngIf="!sites">
     <mat-spinner class="center"></mat-spinner>

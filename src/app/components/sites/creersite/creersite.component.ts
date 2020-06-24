@@ -21,6 +21,12 @@ export class CreersiteComponent implements OnInit {
     img: new FormControl('',Validators.required),
     province: new FormControl('', Validators.required),
     cat: new FormControl('', Validators.required),
+    telephone: new FormControl('',Validators.required),
+    email: new FormControl(),
+    site: new FormControl(),
+    horaire: new FormControl('', Validators.required),
+    adresse: new FormControl('', Validators.required),
+    presentation: new FormControl()
   })
   constructor(private storage: AngularFireStorage, private  service: SiteService) { }
 
@@ -70,7 +76,13 @@ export class CreersiteComponent implements OnInit {
        description:'',
        img:'',
        province:'',
-       cat:''
+       cat:'',
+       telephone:'',
+       email:'',
+       site:'',
+       horaire:'',
+       adresse:'',
+       presentation:''
      });
      this.imgSrc='/assets/img/fleur.jpg';
      this.selectedImage= null;
