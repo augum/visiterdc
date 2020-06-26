@@ -17,9 +17,9 @@
         <p>Catégorie: {{data.content.cat}}</p>
         <p>Province: {{data.content.province}}</p><hr>
         <p>Adresse: {{data.content.adresse}}</p>
-        <p>Telephone: {{data.content.telephone}}</p>
-        <p *ngIf="data.content.email" >Email: {{data.content.email}}</p>
-        <p *ngIf="data.content.site"><a href="{{data.content.site}}">site: {{data.content.site}}</a></p>
+        <p>Telephone:(+243) {{data.content.telephone}}</p>
+        <p *ngIf="data.content.email" >Email: <a href="mailto:{{data.content.email}}">{{data.content.email}}</a></p>
+        <p *ngIf="data.content.site">site:<a href="{{data.content.site}}"> {{data.content.site}}</a></p>
         <p>Horaire d'ouverture: {{data.content.horaire}}</p>
         <p>Adresse: {{data.content.adresse}}</p><hr>
         <button mat-raised-button color="primary"  (click)="retour()">Retour</button>

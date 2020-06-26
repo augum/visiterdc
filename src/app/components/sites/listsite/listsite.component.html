@@ -34,11 +34,11 @@
               <img src="{{site.content.img}}" alt="{{site.content.nom}}" class="card-img-top pointer image" (click)="voirDetail(site)">
            </a>
            <div class="middle">
-             <div class="text">{{site.content.nom}}</div>
+             <div (click)="voirDetail(site)" class="text">{{site.content.cat}}</div>
             </div>
            <div class="card-body">
               <h2 (click)="voirDetail(site)" class="pointer">{{site.content.nom}}</h2>
-              <p class="text-muted card-text">{{site.content.description}}</p>
+              <p class="text-muted card-text">{{site.content.presentation}}</p>
            </div>
          </div>
        </div>
