@@ -3,6 +3,7 @@ import { Routes, RouterModule } from '@angular/router';
 import {ListsiteComponent} from './components/sites/listsite/listsite.component';
 import {DetailsiteComponent} from './components/sites/detailsite/detailsite.component';
 import {CreersiteComponent} from './components/sites/creersite/creersite.component';
+import { HeaderComponent } from './shared/header/header.component';
 
 
 const routes: Routes = [
@@ -20,6 +21,11 @@ const routes: Routes = [
   {
     path: 'sitecreer',
     component: CreersiteComponent
+  }
+  ,
+  {
+    path: 'apropos',
+    component: HeaderComponent
   }
 ];
 
