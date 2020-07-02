@@ -136,3 +136,7 @@ input[type=text]{
   font-size: 16px;
   padding: 16px 32px;
 }
+.spacer{
+  margin-top: 5px;
+  
+}

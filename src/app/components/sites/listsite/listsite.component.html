@@ -28,21 +28,41 @@
 </div>
 <section class="authentic gallery-block cards-gallery">
   <div class="container"  *ngIf="sites">
-     <div class="row" >
-       <div class="col-md-6 col-lg-4" *ngFor="let site of recherchesites">
-         <div class="card border-0 transform-on-hover imgover">
-           <a class="lightbox" >
-              <img src="{{site.content.img}}" alt="{{site.content.nom}}" class="card-img-top pointer image" (click)="voirDetail(site)">
-           </a>
-           <div class="middle">
-             <div (click)="voirDetail(site)" class="text">Voir détail</div>
-            </div>
-           <div class="card-body">
-              <h2 (click)="voirDetail(site)" class="pointer">{{site.content.nom}}</h2>
-              <p class="text-muted card-text">{{site.content.presentation}}</p>
+     <div class="row" *ngIf="detail==0" >
+        <div class="col-md-6 col-lg-4" *ngFor="let site of recherchesites ; let i=index" >
+            <div class="card border-0 transform-on-hover imgover" *ngIf="i<3">
+              <a class="lightbox" >
+                 <img src="{{site.content.img}}" alt="{{site.content.nom}}" class="card-img-top pointer image" (click)="voirDetail(site)">
+              </a>
+              <div class="middle">
+                <div (click)="voirDetail(site)" class="text">Voir détail</div>
+               </div>
+              <div class="card-body">
+                 <h2 (click)="voirDetail(site)" class="pointer">{{site.content.nom}}</h2>
+                 <p class="text-muted card-text">{{site.content.presentation}}</p>
+              </div>
+          </div>
+          
+      </div>
+      <div>
+        <button (click)="plus()" *ngIf="detail==0" mat-raised-button color="primary"  class="spacer" >Voir plus de sites</button>
+      </div>
+      </div>
+     <div class="row" *ngIf="detail==1">
+      <div class="col-md-6 col-lg-4" *ngFor="let site of recherchesites">
+        <div class="card border-0 transform-on-hover imgover" >
+          <a class="lightbox" >
+             <img src="{{site.content.img}}" alt="{{site.content.nom}}" class="card-img-top pointer image" (click)="voirDetail(site)">
+          </a>
+          <div class="middle">
+            <div (click)="voirDetail(site)" class="text">Voir détail</div>
            </div>
-         </div>
-       </div>
+          <div class="card-body">
+             <h2 (click)="voirDetail(site)" class="pointer">{{site.content.nom}}</h2>
+             <p class="text-muted card-text">{{site.content.presentation}}</p>
+          </div>
+        </div>
+      </div>
      </div>
   </div>
   <div *ngIf="!sites">

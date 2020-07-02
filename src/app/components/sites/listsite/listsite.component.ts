@@ -18,6 +18,7 @@ export class ListsiteComponent implements OnInit {
  public sites:Site[];
  public recherchesites: Site[];
  public rowIndexArray:any[];
+ public detail:number = 0;
  imageDetailList:AngularFireList<any>;
  value: any;
   public inters:MatTableDataSource<Site>;
@@ -73,38 +74,19 @@ export class ListsiteComponent implements OnInit {
          return item.payload.val();
        });
 
-       console.log(this.recherchesites);
        this.rowIndexArray= Array.from(Array(Math.ceil(this.sites.length/3)).keys());
      }
    )
  }
+
  search(query:string){
   
   this.recherchesites= (query)? this.sites.filter(site=>site.content.province.toLowerCase().includes(query.toLowerCase())):this.sites;
-    console.log(query);
+  
  }
-
-  applyFilter(province:string) {
-    this.service.getByProvince(province).snapshotChanges().subscribe(
-      list =>{
-        this.sites = list.map(item=>{
-          return item.payload.val();
-        });
- 
-        this.inters= new MatTableDataSource(this.sites);
-        this.inters.paginator = this.paginator;
-        console.log(this.sites);
-        this.rowIndexArray= Array.from(Array(Math.ceil(this.sites.length/3)).keys());
-      }
-    )
-  }
-
-  closeCherche() {
-    this.value='';
-    this.getSite();
-    
-  }
-
+ plus(){
+  this.detail = 1;
+ }
   voirDetail(site:Site){
      let navigationExtra: NavigationExtras={
         queryParams:{
